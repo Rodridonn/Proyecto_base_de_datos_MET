@@ -23,15 +23,49 @@ class SpecialityController extends Controller
             $specialities->where('fecha', $request->input('fecha'));
         }
 
+        if ($request->filled('fecha_mes')) {
+            $fecha_mes = $request->input('fecha_mes');
+            $mes = date('m', strtotime($fecha_mes));
+            $ano = date('Y', strtotime($fecha_mes));
+            $specialities->whereYear('fecha', $ano)->whereMonth('fecha', $mes);
+        }     
+
 
         if ($request->filled('dd_inicio') && $request->filled('dd_final')) {
             $dd_inicio = $request->input('dd_inicio');
             $dd_fin = $request->input('dd_final');
-            $specialities->whereBetween('dd', [$dd_inicio, $dd_fin]);
+            if ($dd_inicio < $dd_fin) {
+                // Rango de búsqueda que no cruza el límite de 360°
+                $specialities->whereBetween('dd', [$dd_inicio, $dd_fin]);
+            } else {
+                // Rango de búsqueda que cruza el límite de 360°
+                $specialities->where(function($query) use ($dd_inicio, $dd_fin) {
+                    $query->whereBetween('dd', [$dd_inicio, 360])
+                          ->orWhereBetween('dd', [0, $dd_fin]);
+                });
+            }
         } elseif ($request->filled('dd')) {
             $specialities->where('dd', $request->input('dd'));
         }
     
+
+        if ($request->filled('ff_inicio') && $request->filled('ff_final')) {
+            $ff_inicio = $request->input('ff_inicio');
+            $ff_fin = $request->input('ff_final');
+            $specialities->whereBetween('ff', [$ff_inicio, $ff_fin]);
+        } elseif ($request->filled('ff')) {
+            $specialities->where('ff', $request->input('ff'));
+        }
+
+        if ($request->filled('fmfm_inicio') && $request->filled('fmfm_final')) {
+            $fmfm_inicio = $request->input('fmfm_inicio');
+            $fmfm_fin = $request->input('fmfm_final');
+            $specialities->whereBetween('fmfm', [$fmfm_inicio, $fmfm_fin]);
+        } elseif ($request->filled('fmfm')) {
+            $specialities->where('fmfm', $request->input('fmfm'));
+        }
+
+        
         if ($request->filled('vvvv_inicio') && $request->filled('vvvv_final')) {
             $vvvv_inicio = $request->input('vvvv_inicio');
             $vvvv_fin = $request->input('vvvv_final');
@@ -64,9 +98,10 @@ class SpecialityController extends Controller
         if ($request->filled('tt_inicio') && $request->filled('tt_final')) {
             $tt_inicio = $request->input('tt_inicio');
             $tt_fin = $request->input('tt_final');
-            $specialities->whereBetween('tt', [$tt_inicio, $tt_fin]);
+            $specialities->whereRaw('tt BETWEEN ? AND ?', [$tt_inicio, $tt_fin]);
         } elseif ($request->filled('tt')) {
-            $specialities->where('tt', $request->input('tt'));
+            $tt = $request->input('tt');
+            $specialities->where('tt', $tt);
         }
     
 
@@ -77,6 +112,17 @@ class SpecialityController extends Controller
         } elseif ($request->filled('tbh')) {
             $specialities->where('tbh', $request->input('tbh'));
         }
+
+
+
+        if ($request->filled('td_inicio') && $request->filled('td_final')) {
+            $td_inicio = $request->input('td_inicio');
+            $td_fin = $request->input('td_final');
+            $specialities->whereBetween('td', [$td_inicio, $td_fin]);
+        } elseif ($request->filled('td')) {
+            $specialities->where('td', $request->input('td'));
+        }
+
 
         if ($request->filled('qfe')) {
             $qfe = $request->input('qfe');

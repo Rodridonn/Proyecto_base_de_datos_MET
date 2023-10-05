@@ -25,6 +25,13 @@ class MetslvrController extends Controller
             $metslvr->where('fecha', $request->input('fecha'));
         }
 
+        if ($request->filled('fecha_mes')) {
+            $fecha_mes = $request->input('fecha_mes');
+            $mes = date('m', strtotime($fecha_mes));
+            $ano = date('Y', strtotime($fecha_mes));
+            $metslvr->whereYear('fecha', $ano)->whereMonth('fecha', $mes);
+        } 
+
 
         if ($request->filled('dd_inicio') && $request->filled('dd_final')) {
             $dd_inicio = $request->input('dd_inicio');
@@ -34,6 +41,23 @@ class MetslvrController extends Controller
             $metslvr->where('dd', $request->input('dd'));
         }
     
+        if ($request->filled('ff_inicio') && $request->filled('ff_final')) {
+            $ff_inicio = $request->input('ff_inicio');
+            $ff_fin = $request->input('ff_final');
+            $metslvr->whereBetween('ff', [$ff_inicio, $ff_fin]);
+        } elseif ($request->filled('ff')) {
+            $metslvr->where('ff', $request->input('ff'));
+        }
+
+        if ($request->filled('fmfm_inicio') && $request->filled('fmfm_final')) {
+            $fmfm_inicio = $request->input('fmfm_inicio');
+            $fmfm_fin = $request->input('fmfm_final');
+            $metslvr->whereBetween('fmfm', [$fmfm_inicio, $fmfm_fin]);
+        } elseif ($request->filled('fmfm')) {
+            $metslvr->where('fmfm', $request->input('fmfm'));
+        }
+
+
         if ($request->filled('vvvv_inicio') && $request->filled('vvvv_final')) {
             $vvvv_inicio = $request->input('vvvv_inicio');
             $vvvv_fin = $request->input('vvvv_final');
@@ -65,9 +89,10 @@ class MetslvrController extends Controller
         if ($request->filled('tt_inicio') && $request->filled('tt_final')) {
             $tt_inicio = $request->input('tt_inicio');
             $tt_fin = $request->input('tt_final');
-            $metslvr->whereBetween('tt', [$tt_inicio, $tt_fin]);
+            $metslvr->whereRaw('tt BETWEEN ? AND ?', [$tt_inicio, $tt_fin]);
         } elseif ($request->filled('tt')) {
-            $metslvr->where('tt', $request->input('tt'));
+            $tt = $request->input('tt');
+            $metslvr->where('tt', $tt);
         }
     
 
@@ -77,6 +102,15 @@ class MetslvrController extends Controller
             $metslvr->whereBetween('tbh', [$tbh_inicio, $tbh_fin]);
         } elseif ($request->filled('tbh')) {
             $metslvr->where('tbh', $request->input('tbh'));
+        }
+
+        
+        if ($request->filled('td_inicio') && $request->filled('td_final')) {
+            $td_inicio = $request->input('td_inicio');
+            $td_fin = $request->input('td_final');
+            $metslvr->whereBetween('td', [$td_inicio, $td_fin]);
+        } elseif ($request->filled('td')) {
+            $metslvr->where('td', $request->input('td'));
         }
 
         if ($request->filled('qfe')) {

@@ -23,9 +23,7 @@
                         <i class="fas fa-exclamation-triangle"></i>
                         <strong></strong>{{$error}}
                     </div>
-    
                 @endforeach
-                
             @endif
 
             <form action="{{ url('/especialidades/' .$speciality->id)}}" method="POST">

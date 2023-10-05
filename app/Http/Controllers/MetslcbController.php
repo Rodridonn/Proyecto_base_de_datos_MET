@@ -26,15 +26,49 @@ class MetslcbController extends Controller
             $metslcb->where('fecha', $request->input('fecha'));
         }
 
+        if ($request->filled('fecha_mes')) {
+            $fecha_mes = $request->input('fecha_mes');
+            $mes = date('m', strtotime($fecha_mes));
+            $ano = date('Y', strtotime($fecha_mes));
+            $metslcb->whereYear('fecha', $ano)->whereMonth('fecha', $mes);
+        } 
+
 
         if ($request->filled('dd_inicio') && $request->filled('dd_final')) {
             $dd_inicio = $request->input('dd_inicio');
             $dd_fin = $request->input('dd_final');
-            $metslcb->whereBetween('dd', [$dd_inicio, $dd_fin]);
+            if ($dd_inicio < $dd_fin) {
+                // Rango de búsqueda que no cruza el límite de 360°
+                $metslcb->whereBetween('dd', [$dd_inicio, $dd_fin]);
+            } else {
+                // Rango de búsqueda que cruza el límite de 360°
+                $metslcb->where(function($query) use ($dd_inicio, $dd_fin) {
+                    $query->whereBetween('dd', [$dd_inicio, 360])
+                          ->orWhereBetween('dd', [0, $dd_fin]);
+                });
+            }
         } elseif ($request->filled('dd')) {
             $metslcb->where('dd', $request->input('dd'));
         }
     
+
+        if ($request->filled('ff_inicio') && $request->filled('ff_final')) {
+            $ff_inicio = $request->input('ff_inicio');
+            $ff_fin = $request->input('ff_final');
+            $metslcb->whereBetween('ff', [$ff_inicio, $ff_fin]);
+        } elseif ($request->filled('ff')) {
+            $metslcb->where('ff', $request->input('ff'));
+        }
+
+        if ($request->filled('fmfm_inicio') && $request->filled('fmfm_final')) {
+            $fmfm_inicio = $request->input('fmfm_inicio');
+            $fmfm_fin = $request->input('fmfm_final');
+            $metslcb->whereBetween('fmfm', [$fmfm_inicio, $fmfm_fin]);
+        } elseif ($request->filled('fmfm')) {
+            $metslcb->where('fmfm', $request->input('fmfm'));
+        }
+
+
         if ($request->filled('vvvv_inicio') && $request->filled('vvvv_final')) {
             $vvvv_inicio = $request->input('vvvv_inicio');
             $vvvv_fin = $request->input('vvvv_final');
@@ -78,6 +112,14 @@ class MetslcbController extends Controller
             $metslcb->whereBetween('tbh', [$tbh_inicio, $tbh_fin]);
         } elseif ($request->filled('tbh')) {
             $metslcb->where('tbh', $request->input('tbh'));
+        }
+
+        if ($request->filled('td_inicio') && $request->filled('td_final')) {
+            $td_inicio = $request->input('td_inicio');
+            $td_fin = $request->input('td_final');
+            $metslcb->whereBetween('td', [$td_inicio, $td_fin]);
+        } elseif ($request->filled('td')) {
+            $metslcb->where('td', $request->input('td'));
         }
 
         if ($request->filled('qfe')) {

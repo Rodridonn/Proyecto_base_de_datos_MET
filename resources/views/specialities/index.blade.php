@@ -1,8 +1,12 @@
 @extends('layouts.panel')
 
   @section('css')
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css">
+<!-- JS -->
   @endsection
+
+
 
 @section('content')
 
@@ -42,29 +46,63 @@
                                 <div style="width: 15%" class="input-group">
                                   <input type="date" name="fecha_fin" placeholder="Buscar por fecha final" class="form-control">
                                 </div>
+
+                                <div style="width: 15%" class="input-group">
+                                  <input type="month" name="fecha_mes" placeholder="Buscar por meses" class="form-control">
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Buscador por meses"><i class="fa fa-info-circle"></i></span>
+                                  </div>
+                                </div>
                                 
                                 <div class="input-group" style="width: 17%">
-                                  <input type="number" name="dd_inicio" class="form-control" placeholder="Buscar por DD">
+                                  <input type="number" name="dd_inicio" class="form-control" placeholder="DD">
                                   <div class="input-group-append">
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico inicial de DD aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
                                 <div class="input-group" style="width: 17%">
-                                  <input type="number" name="dd_final" class="form-control" placeholder="Buscar por DD">
+                                  <input type="number" name="dd_final" class="form-control" placeholder="DD">
                                   <div class="input-group-append">
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de DD aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
  
 
+                                <div class="input-group" style="width: 17%">
+                                <input type="number" name="ff_inicio" class="form-control" placeholder="FF">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico inicial de FF aquí"><i class="fa fa-info-circle"></i></span>
+                                </div>
+                              </div>
+                              <div class="input-group" style="width: 17%">
+                                <input type="number" name="ff_final" class="form-control" placeholder="FF">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de FF aquí"><i class="fa fa-info-circle"></i></span>
+                                </div>
+                              </div>
+
+
+                              <div class="input-group" style="width: 17%">
+                                <input type="number" name="fmfm_inicio" class="form-control" placeholder="FMFM">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico inicial de FMFM aquí"><i class="fa fa-info-circle"></i></span>
+                                </div>
+                              </div>
+                              <div class="input-group" style="width: 17%">
+                                <input type="number" name="fmfm_final" class="form-control" placeholder="FMFM ">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de FMFM aquí"><i class="fa fa-info-circle"></i></span>
+                                </div>
+                              </div>
+
                                 <div class="input-group" style="width: 18%">
-                                  <input type="number" name="vvvv_inicio" class="form-control" placeholder="Buscar por VVVV">
+                                  <input type="number" name="vvvv_inicio" class="form-control" placeholder="VVVV">
                                   <div class="input-group-append">
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico inicial de VVVV aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
                                 <div class="input-group" style="width: 18%">
-                                  <input type="number" name="vvvv_final" class="form-control" placeholder="Buscar por VVVV">
+                                  <input type="number" name="vvvv_final" class="form-control" placeholder="VVVV">
                                   <div class="input-group-append">
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor final numérico de VVVV aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
@@ -95,35 +133,49 @@
                                 </div>
 
                                 <div class="input-group" style="width: 15%">
-                                  <input type="number" name="tt_inicio" class="form-control" placeholder="TT" step="0.1">
-                                  <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico inicial de TT aquí"><i class="fa fa-info-circle"></i></span>
-                                  </div>
-                                </div>
-                                <div class="input-group" style="width: 15%">
                                   <input type="number" name="tt_final" class="form-control" placeholder="TT" step="0.1">
                                   <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor final numérico de TT aquí"><i class="fa fa-info-circle"></i></span>
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TT aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
-
                                 <div class="input-group" style="width: 15%">
-                                  <input type="number" name="tbh_inicio" class="form-control" placeholder="TBH" step="0.1">
+                                  <input type="number" name="tt_inicio" class="form-control" placeholder="TT" step="0.1">
                                   <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico inicial de TBH aquí"><i class="fa fa-info-circle"></i></span>
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TT aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
+                                
                                 <div class="input-group" style="width: 15%">
                                   <input type="number" name="tbh_final" class="form-control" placeholder="TBH" step="0.1">
                                   <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor final numérico de TBH aquí"><i class="fa fa-info-circle"></i></span>
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TBH aquí"><i class="fa fa-info-circle"></i></span>
+                                  </div>
+                                </div>
+                                <div class="input-group" style="width: 15%">
+                                  <input type="number" name="tbh_inicio" class="form-control" placeholder="TBH" step="0.1">
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TBH aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
 
                                 <div class="input-group" style="width: 15%">
-                                  <input type="text" name="cbtcu" class="form-control" onkeyup="javascript:this.value=this.value.toUpperCase(); maxlength="3" placeholder="CB/TCU">
+                                  <input type="number" name="td_final" class="form-control" placeholder="TD" step="0.1">
                                   <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" ><i class="fa fa-info-circle"></i></span>
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TD aquí"><i class="fa fa-info-circle"></i></span>
+                                  </div>
+                                </div>
+                                <div class="input-group" style="width: 15%">
+                                  <input type="number" name="td_inicio" class="form-control" placeholder="TD" step="0.1">
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TD aquí"><i class="fa fa-info-circle"></i></span>
+                                  </div>
+                                </div>                             
+
+
+                                <div class="input-group" style="width: 15%">
+                                  <input type="text" name="cbtcu" class="form-control" onkeyup="javascript:this.value=this.value.toUpperCase()" maxlength="3" placeholder="CB/TCU">
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Buscar por CB/TCU" ><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
 
@@ -143,14 +195,17 @@
                                 </div>
 
 
-                                </div>
-                                <div class="input-group" style="width: 20%">
-                                  <input type="text" name="notas" class="form-control" placeholder="Buscar por notas"
+                              <div class="input-group" style="width: 20%">
+                                  <input type="text" name="notas" class="form-control" placeholder="notas"
                                   style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                   <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese alguan referencia aquí"><i class="fa fa-info-circle"></i></span>
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Buscar por notas"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
+
+                              
+                                </div>
+                                
 
                               </div>
                             </div>
@@ -380,16 +435,32 @@
           </table>
 
           @section('js')
+              <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+              <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+              <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+              <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+              <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+              <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script>
+              <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
 
-            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-            <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-            <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-            <script>                  
-              $(document).ready(function () {
-                  $('#tablaespecial').DataTable();
-              });
-            </script>
-          @endsection
+              <script>
+                  $(document).ready(function() {
+                      $('#tablaespecial').DataTable( {
+                          dom: 'Bfrtip',
+                          buttons: [
+
+                            { extend: 'copy',  className:'copyButton',                    filename: 'Base de datos SLLP' },
+                            { extend: 'excelHtml5', className: 'btn btn-outline-success', filename: 'Base de datos SLLP' },
+                            { extend: 'csv', className: 'csvButton',                      filename: 'Base de datos SLLP' },
+                            { extend: 'pdf', className: 'dpfButton',                      filename: 'Base de datos SLLP' },
+                            { extend: 'print', className: 'printButton',                  filename: 'Base de datos SLLP' }
+                          ],
+                          lengthMenu: [ 10, 25, 50, 75, 100 ]
+                      } );
+                  } );
+                </script>
+            @endsection
 
         </div>
       </div>
