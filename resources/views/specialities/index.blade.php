@@ -133,17 +133,18 @@
                                 </div>
 
                                 <div class="input-group" style="width: 15%">
-                                  <input type="number" name="tt_final" class="form-control" placeholder="TT" step="0.1">
-                                  <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TT aquí"><i class="fa fa-info-circle"></i></span>
-                                  </div>
-                                </div>
-                                <div class="input-group" style="width: 15%">
                                   <input type="number" name="tt_inicio" class="form-control" placeholder="TT" step="0.1">
                                   <div class="input-group-append">
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TT aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
+                                <div class="input-group" style="width: 15%">
+                                  <input type="number" name="tt_final" class="form-control" placeholder="TT" step="0.1">
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TT aquí"><i class="fa fa-info-circle"></i></span>
+                                  </div>
+                                </div>
+                                
                                 
                                 <div class="input-group" style="width: 15%">
                                   <input type="number" name="tbh_final" class="form-control" placeholder="TBH" step="0.1">
@@ -159,17 +160,18 @@
                                 </div>
 
                                 <div class="input-group" style="width: 15%">
+                                  <input type="number" name="td_inicio" class="form-control" placeholder="TD" step="0.1">
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TD aquí"><i class="fa fa-info-circle"></i></span>
+                                  </div>
+                                </div>                            
+                                <div class="input-group" style="width: 15%">
                                   <input type="number" name="td_final" class="form-control" placeholder="TD" step="0.1">
                                   <div class="input-group-append">
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TD aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                                 </div>
-                                <div class="input-group" style="width: 15%">
-                                  <input type="number" name="td_inicio" class="form-control" placeholder="TD" step="0.1">
-                                  <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TD aquí"><i class="fa fa-info-circle"></i></span>
-                                  </div>
-                                </div>                             
+                                 
 
 
                                 <div class="input-group" style="width: 15%">

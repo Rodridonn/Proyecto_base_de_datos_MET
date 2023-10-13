@@ -63,6 +63,24 @@ Route::post('/metslvr', [App\Http\Controllers\MetslvrController::class, 'sendDat
 Route::put('/metslvr/{metslvr}', [App\Http\Controllers\MetslvrController::class, 'update']);
 Route::delete('/metslvr/{metslvr}', [App\Http\Controllers\MetslvrController::class, 'destroy']);
 
+/* RUTAS MET-004 SLJO */
+Route::get('/metsljo', [App\Http\Controllers\MetsljoController::class, 'index']);
+Route::get('/metsljo/create', [App\Http\Controllers\MetsljoController::class, 'create']);
+Route::get('/metsljo/{metsljo}/edit', [App\Http\Controllers\MetsljoController::class, 'edit']);
+Route::post('/metsljo', [App\Http\Controllers\MetsljoController::class, 'sendData']);
+
+Route::put('/metsljo/{metsljo}', [App\Http\Controllers\MetsljoController::class, 'update']);
+Route::delete('/metsljo/{metsljo}', [App\Http\Controllers\MetsljoController::class, 'destroy']);
+
+/* RUTAS MET-004 SLMG */
+Route::get('/metslmg', [App\Http\Controllers\MetslmgController::class, 'index']);
+Route::get('/metslmg/create', [App\Http\Controllers\MetslmgController::class, 'create']);
+Route::get('/metslmg/{metslmg}/edit', [App\Http\Controllers\MetslmgController::class, 'edit']);
+Route::post('/metslmg', [App\Http\Controllers\MetslmgController::class, 'sendData']);
+
+Route::put('/metslmg/{metslmg}', [App\Http\Controllers\MetslmgController::class, 'update']);
+Route::delete('/metslmg/{metslmg}', [App\Http\Controllers\MetslmgController::class, 'destroy']);
+
 /* RUTAS DE LA PESTAÑA METAR */
 Route::get('/metar',[App\Http\Controllers\MetarController::class, 'index']);
 Route::get('/metar/create',[App\Http\Controllers\MetarController::class, 'create']);

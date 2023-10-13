@@ -10,7 +10,7 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">MET-004 SLVR</h3>
+              <h3 class="mb-0">MET-004 SLMG</h3>
             </div>
 
             <div class="row d-flex justify-content-between">
@@ -18,11 +18,11 @@
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="card-body">
-                  <a href="{{ url('/metslvr/create' )}}" class="btn btn-sm btn-primary btn-block flex-fill">Añadir nuevo registro</a>
+                  <a href="{{ url('/metslmg/create' )}}" class="btn btn-sm btn-primary btn-block flex-fill">Añadir nuevo registro</a>
                 </div>
               </div>
             </div>
-            
+
             <div class="row">
               <div class="col-lg-12">
                 <div class="card card-info">
@@ -30,7 +30,7 @@
                     <h3 class="card-title"> BUSQUEDA AVANZADA</h3>
                     <div class="card-tools">
                       
-                      <form action="{{ url('/metslvr') }}" method="get">
+                      <form action="{{ url('/metslmg') }}" method="get">
                         <div class="card-body">
                           <div class="row">
                             <div class="col-lg-12 d-lg-flex"> 
@@ -90,7 +90,6 @@
                                 </div>
                               </div>
 
-
                               <div class="input-group" style="width: 18%">
                                 <input type="number" name="vvvv_inicio" class="form-control" placeholder="VVVV">
                                 <div class="input-group-append">
@@ -103,9 +102,9 @@
                                   <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor final numérico de VVVV aquí"><i class="fa fa-info-circle"></i></span>
                                 </div>
                               </div>
+
+
                             </div>
-                            
-    
                             </div>
                           </div>
                         </div>
@@ -128,34 +127,32 @@
                                 </div>
                               </div>
 
-
                               <div class="input-group" style="width: 15%">
                                 <input type="number" name="tt_final" class="form-control" placeholder="TT" step="0.1">
                                 <div class="input-group-append">
-                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor final numérico de TT aquí"><i class="fa fa-info-circle"></i></span>
+                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TT aquí"><i class="fa fa-info-circle"></i></span>
                                 </div>
                               </div>
                               <div class="input-group" style="width: 15%">
                                 <input type="number" name="tt_inicio" class="form-control" placeholder="TT" step="0.1">
                                 <div class="input-group-append">
-                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico inicial de TT aquí"><i class="fa fa-info-circle"></i></span>
+                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TT aquí"><i class="fa fa-info-circle"></i></span>
                                 </div>
                               </div>
 
-
-
-                              <div class="input-group" style="width: 15%">
-                                <input type="number" name="tbh_inicio" class="form-control" placeholder="TBH" step="0.1">
-                                <div class="input-group-append">
-                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico inicial de TBH aquí"><i class="fa fa-info-circle"></i></span>
-                                </div>
-                              </div>
                               <div class="input-group" style="width: 15%">
                                 <input type="number" name="tbh_final" class="form-control" placeholder="TBH" step="0.1">
                                 <div class="input-group-append">
-                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor final numérico de TBH aquí"><i class="fa fa-info-circle"></i></span>
+                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TBH aquí"><i class="fa fa-info-circle"></i></span>
                                 </div>
                               </div>
+                              <div class="input-group" style="width: 15%">
+                                <input type="number" name="tbh_inicio" class="form-control" placeholder="TBH" step="0.1">
+                                <div class="input-group-append">
+                                  <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TBH aquí"><i class="fa fa-info-circle"></i></span>
+                                </div>
+                              </div>
+
 
                               <div class="input-group" style="width: 15%">
                                   <input type="number" name="td_final" class="form-control" placeholder="TD" step="0.1">
@@ -169,6 +166,7 @@
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TD aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                               </div>
+
 
 
                               <div class="input-group" style="width: 15%">
@@ -202,8 +200,7 @@
                               </div>
 
 
-                              </div>
-                              
+                              </div>                              
                             </div>
                           </div>
                         </div>       
@@ -212,23 +209,17 @@
                         <button type="submit" class="btn btn-warning" data-card-widget="collapse">Buscar</button>
                       </form> 
                       
-                      
+
+
                     </div>
-                      
               </div>
           </div>
         </div>
       </div>
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-lg-12">
 
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-        
+
 
         <div class="card-body">   {{-- barra de notificacion que informa que fue creado o borrado un nuevo registro --}} 
             @if (session('notification'))
@@ -281,7 +272,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($metslvr as $met )
+              @foreach ($metslmg as $met )
               <tr>
                 <th scope="row">
                   {{$met->id}}
@@ -411,10 +402,10 @@
                   
                 </td>
                 <td>
-                  <form action="{{url('/metslvr/'.$met->id)}}" method="POST">  {{-- botones de editar y eliminar --}} 
+                  <form action="{{url('/metslmg/'.$met->id)}}" method="POST">  {{-- botones de editar y eliminar --}} 
                     @csrf
                     @method('DELETE')
-                    <a href="{{url('/metslvr/'.$met->id. '/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="{{url('/metslmg/'.$met->id. '/edit')}}" class="btn btn-sm btn-primary">Editar</a>
                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</button>
                   </form>
                 </td>
@@ -426,8 +417,7 @@
 
           @section('js')
 
-
-              <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
               <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
               <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
               <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -445,17 +435,18 @@
                           dom: 'Bfrtip',
                           buttons: [
 
-                            { extend: 'copy',  className:'copyButton',                    filename: 'Base de datos SLVR' },
-                            { extend: 'excelHtml5', className: 'btn btn-outline-success', filename: 'Base de datos SLVR' },
-                            { extend: 'csv', className: 'csvButton',                      filename: 'Base de datos SLVR' },
-                            { extend: 'pdf', className: 'dpfButton',                      filename: 'Base de datos SLVR' },
-                            { extend: 'print', className: 'printButton',                  filename: 'Base de datos SLVR' }
+                            { extend: 'copy',  className:'copyButton',                    filename: 'Base de datos SLMG' },
+                            { extend: 'excelHtml5', className: 'btn btn-outline-success', filename: 'Base de datos SLMG' },
+                            { extend: 'csv', className: 'csvButton',                      filename: 'Base de datos SLMG' },
+                            { extend: 'pdf', className: 'dpfButton',                      filename: 'Base de datos SLMG' },
+                            { extend: 'print', className: 'printButton',                  filename: 'Base de datos SLMG' }
                           ],
                           lengthMenu: [ 10, 25, 50, 75, 100 ]
                       } );
                   } );
                 </script>
-            @endsection
+
+          @endsection
 
         </div>
       </div>
