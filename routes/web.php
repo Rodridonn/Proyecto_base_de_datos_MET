@@ -4,6 +4,7 @@ use App\Http\Controllers\SpecialityController;
 use App\Models\Speciality;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MetsltrController;
               
 use Maatwebsite\Excel\Excel;
 use Maatwebsite\Excel\ExcelServiceProvider;
@@ -35,6 +36,24 @@ Route::post('/metslcb', [App\Http\Controllers\MetslcbController::class, 'sendDat
 
 Route::put('/metslcb/{metslcb}', [App\Http\Controllers\MetslcbController::class, 'update']);
 Route::delete('/metslcb/{metslcb}', [App\Http\Controllers\MetslcbController::class, 'destroy']);
+/* RUTAS MET-004 SLTR */
+Route::get('/metsltr', [App\Http\Controllers\MetsltrController::class, 'index']);
+Route::get('/metsltr/create', [App\Http\Controllers\MetsltrController::class, 'create']);
+Route::get('/metsltr/{metsltr}/edit', [App\Http\Controllers\MetsltrController::class, 'edit']);
+Route::post('/metsltr', [App\Http\Controllers\MetsltrController::class, 'sendData']);
+
+Route::put('/metsltr/{metsltr}', [App\Http\Controllers\MetsltrController::class, 'update']);
+Route::delete('/metsltr/{metsltr}', [App\Http\Controllers\MetsltrController::class, 'destroy']);
+
+/* RUTAS MET-004 SLGM */
+Route::get('/metslgm', [App\Http\Controllers\MetslgmController::class, 'index']);
+Route::get('/metslgm/create', [App\Http\Controllers\MetslgmController::class, 'create']);
+Route::get('/metslgm/{metslgm}/edit', [App\Http\Controllers\MetslgmController::class, 'edit']);
+Route::post('/metslgm', [App\Http\Controllers\MetslgmController::class, 'sendData']);
+
+Route::put('/metslgm/{metslgm}', [App\Http\Controllers\MetslgmController::class, 'update']);
+Route::delete('/metslgm/{metslgm}', [App\Http\Controllers\MetslgmController::class, 'destroy']);
+
 /* RUTAS MET-004 SLVR */
 Route::get('/metslvr', [App\Http\Controllers\MetslvrController::class, 'index']);
 Route::get('/metslvr/create', [App\Http\Controllers\MetslvrController::class, 'create']);

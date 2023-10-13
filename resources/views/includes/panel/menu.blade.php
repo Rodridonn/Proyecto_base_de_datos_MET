@@ -6,21 +6,75 @@
             <i class="ni ni-tv-2 text-danger"></i> Dashboard
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link " href="{{ url('/especialidades') }}">
-            <i class="fa fa-database text-blue"></i> Registros MET-004 SLLP{{-- EN i class van los iconos weon --}}
-        </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " href="{{ url('/metslvr') }}">
-          <i class="fa fa-database text-blue"></i> Registros MET-004 SLVR{{-- EN i class van los iconos weon --}}
-      </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link " href="{{ url('/metslcb') }}">
-        <i class="fa fa-database text-blue"></i> Registros MET-004 SLCB{{-- EN i class van los iconos weon --}}
+
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-database text-blue"></i> Registros REGIONAL SLLP
     </a>
-  </li>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ url('/especialidades') }}">Registros MET-004 SLLP</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLCO</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRQ</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLOR</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLUY</a>
+    </div>
+    </li>
+    
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-database text-blue"></i> Registros REGIONAL SLVR
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ url('/metslvr') }}">Registros MET-004 SLVR</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLVR</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLET</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLAS</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLCA</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLCP</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLJE</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLJV</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLPS</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRB</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSV</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLTI</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLVG</a>
+    </div>
+    </li>
+  
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-database text-blue"></i> Registros REGIONAL SLCB
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ url('/metslcb') }}">Registros MET-004 SLCB</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLCB</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLAL</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLPO</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLTJ</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLVM</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLYA</a>
+    </div>
+    </li>
+
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-database text-blue"></i> Registros REGIONAL SLTR
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ url('/metsltr') }}">Registros MET-004 SLTR</a>
+        <a class="dropdown-item" href="{{ url('/metslgm') }}">Registros MET-004 SLGM</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLJO</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLMG</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRA</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRI</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSA</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSM</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSR</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRY</a>
+        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSB</a>
+    </div>
+    </li>
+
     
     
         <a class="nav-link" href="{{route ('logout')}}" 
