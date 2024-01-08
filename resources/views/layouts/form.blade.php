@@ -48,24 +48,19 @@
                   <img src="{{asset('img/brand/blue.png')}}">
                 </a>
               </div>
-              <div class="col-6 collapse-close">
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
-                  <span></span>
-                  <span></span>
-                </button>
-              </div>
+              
             </div>
           </div>
           <!-- Navbar items  registro -->
 
           <ul class="navbar-nav ml-auto">
             
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link nav-link-icon" href="{{route('register')}}">
                 <i class="ni ni-circle-08"></i>
                 <span class="nav-link-inner--text">Regístrate</span>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="{{route('login')}}">
                 <i class="ni ni-key-25"></i>
@@ -92,7 +87,7 @@
       </div>
       <div class="separator separator-bottom separator-skew zindex-100">
         <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+          
         </svg>
       </div>
     </div>
@@ -105,7 +100,7 @@
         <div class="row align-items-center justify-content-xl-between">
           <div class="col-xl-6">
             <div class="copyright text-center text-xl-left text-muted">
-              © naabol 2023   <a href="https://www.naabol.gob.bo/" class="font-weight-bold ml-1">{{config('app.name')}}</a>
+              © naabol 2023   <a  class="font-weight-bold ml-1">{{config('app.name')}}</a>
             </div>
           </div>
           <div class="col-xl-6">

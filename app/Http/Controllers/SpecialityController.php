@@ -95,35 +95,43 @@ class SpecialityController extends Controller
             });
         }
 
+
         if ($request->filled('tt_inicio') && $request->filled('tt_final')) {
             $tt_inicio = $request->input('tt_inicio');
             $tt_fin = $request->input('tt_final');
-            $specialities->whereRaw('tt BETWEEN ? AND ?', [$tt_inicio, $tt_fin]);
+        
+            $specialities->where('tt', '>=', min($tt_inicio, $tt_fin))
+                         ->where('tt', '<=', max($tt_inicio, $tt_fin));
         } elseif ($request->filled('tt')) {
             $tt = $request->input('tt');
             $specialities->where('tt', $tt);
         }
-    
-
+         
+        
         if ($request->filled('tbh_inicio') && $request->filled('tbh_final')) {
             $tbh_inicio = $request->input('tbh_inicio');
             $tbh_fin = $request->input('tbh_final');
-            $specialities->whereBetween('tbh', [$tbh_inicio, $tbh_fin]);
+        
+            $specialities->where('tbh', '>=', min($tbh_inicio, $tbh_fin))
+                         ->where('tbh', '<=', max($tbh_inicio, $tbh_fin));
         } elseif ($request->filled('tbh')) {
-            $specialities->where('tbh', $request->input('tbh'));
+            $tbh = $request->input('tbh');
+            $specialities->where('tbh', $tbh);
         }
-
-
+        
 
         if ($request->filled('td_inicio') && $request->filled('td_final')) {
             $td_inicio = $request->input('td_inicio');
             $td_fin = $request->input('td_final');
-            $specialities->whereBetween('td', [$td_inicio, $td_fin]);
+        
+            $specialities->where('td', '>=', min($td_inicio, $td_fin))
+                         ->where('td', '<=', max($td_inicio, $td_fin));
         } elseif ($request->filled('td')) {
-            $specialities->where('td', $request->input('td'));
+            $td = $request->input('td');
+            $specialities->where('td', $td);
         }
 
-
+        
         if ($request->filled('qfe')) {
             $qfe = $request->input('qfe');
             $specialities->where('qfe', 'LIKE', '%'.$qfe.'%');

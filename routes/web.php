@@ -5,9 +5,11 @@ use App\Models\Speciality;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MetsltrController;
-              
+use App\Http\Controllers\CargaMasivaSltrController;              
 use Maatwebsite\Excel\Excel;
 use Maatwebsite\Excel\ExcelServiceProvider;
+use App\Http\Controllers\UserController;
+
 
 
 Route::get('/', function(){
@@ -41,6 +43,10 @@ Route::get('/metsltr', [App\Http\Controllers\MetsltrController::class, 'index'])
 Route::get('/metsltr/create', [App\Http\Controllers\MetsltrController::class, 'create']);
 Route::get('/metsltr/{metsltr}/edit', [App\Http\Controllers\MetsltrController::class, 'edit']);
 Route::post('/metsltr', [App\Http\Controllers\MetsltrController::class, 'sendData']);
+/* cargar datos a SLTR */
+Route::get('/carga-masiva', [CargaMasivaSltrController::class, 'mostrarFormularioCarga']);
+Route::post('/metsltr/carga-masiva', 'App\Http\Controllers\CargaMasivaSltrController@cargarDatos')->name('carga-masiva');
+
 
 Route::put('/metsltr/{metsltr}', [App\Http\Controllers\MetsltrController::class, 'update']);
 Route::delete('/metsltr/{metsltr}', [App\Http\Controllers\MetsltrController::class, 'destroy']);
@@ -97,3 +103,16 @@ Route::get('tblmetar', [App\Http\Controllers\MetarController::class, 'tabla']);
 /* ruta para exportar a excel */ 
 Route::get('/specialities/export', [App\Exports\SpecialitiesExport::class, 'exportExcel'])->name('specialities.export');
 
+/* Crar usuarios */
+Route::middleware(['auth'])->group(function () {
+
+    /* USERS */
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/create', 'App\Http\Controllers\UserController@create')->name('users.create');  // ¡Añade esta línea aquí!
+    Route::post('users', [UserController::class, 'store'])->name('users.store');
+    Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('users/{user}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
+
+});

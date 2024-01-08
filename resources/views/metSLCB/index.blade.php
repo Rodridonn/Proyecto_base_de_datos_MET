@@ -13,7 +13,7 @@
               <h3 class="mb-0">MET-004 SLCB</h3>
             </div>
 
-            <div class="row d-flex justify-content-between">
+            <!-- <div class="row d-flex justify-content-between">
               <div class="col-lg-4 col-md-1 col-sm-5">
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12">
@@ -21,7 +21,7 @@
                   <a href="{{ url('/metslcb/create' )}}" class="btn btn-sm btn-primary btn-block flex-fill">Añadir nuevo registro</a>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="row">
               <div class="col-lg-12">
@@ -42,12 +42,15 @@
                                 <input type="date" name="fecha_fin" placeholder="Buscar por fecha final" class="form-control">
                               </div>
 
+                              <!-- Buscar por mes -->
                               <div style="width: 15%" class="input-group">
-                                  <input type="month" name="fecha_mes" placeholder="Buscar por meses" class="form-control">
-                                  <div class="input-group-append">
-                                    <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Buscador por meses"><i class="fa fa-info-circle"></i></span>
-                                  </div>
-                              </div>
+                                    <input type="month" name="fecha_mes" class="form-control">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Buscador por meses">
+                                            <i class="fa fa-info-circle"></i>
+                                        </span>
+                                    </div>
+                                </div>
                               
                               <div class="input-group" style="width: 17%">
                                 <input type="number" name="dd_inicio" class="form-control" placeholder="DD">
@@ -128,26 +131,26 @@
                               </div>
 
                               <div class="input-group" style="width: 15%">
-                                <input type="number" name="tt_final" class="form-control" placeholder="TT" step="0.1">
+                                <input type="number" name="tt_inicio" class="form-control" placeholder="TT" step="0.1">
                                 <div class="input-group-append">
                                   <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TT aquí"><i class="fa fa-info-circle"></i></span>
                                 </div>
                               </div>
                               <div class="input-group" style="width: 15%">
-                                <input type="number" name="tt_inicio" class="form-control" placeholder="TT" step="0.1">
+                                <input type="number" name="tt_final" class="form-control" placeholder="TT" step="0.1">
                                 <div class="input-group-append">
                                   <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TT aquí"><i class="fa fa-info-circle"></i></span>
                                 </div>
                               </div>
 
                               <div class="input-group" style="width: 15%">
-                                <input type="number" name="tbh_final" class="form-control" placeholder="TBH" step="0.1">
+                                <input type="number" name="tbh_inicio" class="form-control" placeholder="TBH" step="0.1">
                                 <div class="input-group-append">
                                   <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TBH aquí"><i class="fa fa-info-circle"></i></span>
                                 </div>
                               </div>
                               <div class="input-group" style="width: 15%">
-                                <input type="number" name="tbh_inicio" class="form-control" placeholder="TBH" step="0.1">
+                                <input type="number" name="tbh_final" class="form-control" placeholder="TBH" step="0.1">
                                 <div class="input-group-append">
                                   <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TBH aquí"><i class="fa fa-info-circle"></i></span>
                                 </div>
@@ -155,13 +158,13 @@
 
 
                               <div class="input-group" style="width: 15%">
-                                  <input type="number" name="td_final" class="form-control" placeholder="TD" step="0.1">
+                                  <input type="number" name="td_inicio" class="form-control" placeholder="TD" step="0.1">
                                   <div class="input-group-append">
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor inicial numérico de TD aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
                               </div>
                               <div class="input-group" style="width: 15%">
-                                  <input type="number" name="td_inicio" class="form-control" placeholder="TD" step="0.1">
+                                  <input type="number" name="td_final" class="form-control" placeholder="TD" step="0.1">
                                   <div class="input-group-append">
                                     <span class="input-group-text" data-toggle="tooltip" data-placement="top" title="Ingrese el valor numérico final de TD aquí"><i class="fa fa-info-circle"></i></span>
                                   </div>
@@ -401,13 +404,16 @@
                   {{$met->notas}}
                   
                 </td>
+
                 <td>
-                  <form action="{{url('/metslcb/'.$met->id)}}" method="POST">  {{-- botones de editar y eliminar --}} 
-                    @csrf
-                    @method('DELETE')
-                    <a href="{{url('/metslcb/'.$met->id. '/edit')}}" class="btn btn-sm btn-primary">Editar</a>
-                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</button>
-                  </form>
+                    @if(auth()->user() && auth()->user()->id === 2)
+                        <form action="{{ url('/metslcb/'.$met->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <a href="{{ url('/metslcb/'.$met->id.'/edit') }}" class="btn btn-sm btn-primary">Editar</a>
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</button>
+                        </form>
+                    @endif
                 </td>
 
               </tr>

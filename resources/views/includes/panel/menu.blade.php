@@ -13,10 +13,10 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="{{ url('/especialidades') }}">Registros MET-004 SLLP</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLCO</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRQ</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLOR</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLUY</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLCO</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLRQ</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLOR</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLUY</a>
     </div>
     </li>
     
@@ -26,18 +26,6 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="{{ url('/metslvr') }}">Registros MET-004 SLVR</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLVR</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLET</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLAS</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLCA</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLCP</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLJE</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLJV</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLPS</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRB</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSV</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLTI</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLVG</a>
     </div>
     </li>
   
@@ -47,12 +35,9 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="{{ url('/metslcb') }}">Registros MET-004 SLCB</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLCB</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLAL</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLPO</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLTJ</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLVM</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLYA</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLAL</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLTJ</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLYA</a>
     </div>
     </li>
 
@@ -62,16 +47,16 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="{{ url('/metsltr') }}">Registros MET-004 SLTR</a>
-        <a class="dropdown-item" href="{{ url('/metslgm') }}">Registros MET-004 SLGM</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLJO</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLMG</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRA</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRI</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSA</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSM</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSR</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLRY</a>
-        <a class="dropdown-item" href="{{ url('') }}">Registros MET-004 SLSB</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLGM</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLJO</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLMG</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLRA</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLRI</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLSA</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLSM</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLSR</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLRY</a>
+        <a class="dropdown-item" href="#">Registros MET-004 SLSB</a>
     </div>
     </li>
 
@@ -81,6 +66,7 @@
             onclick="event.preventDefault(); document.getElementById('form-logout').submit()">
             <i class="fas fa-sign-in-alt"></i> Cerrar Sesión 
         </a>
+
       <form action="{{route('logout')}}" method="POST" style="display: none;" id="form-logout">
         @csrf
       </form>
@@ -93,10 +79,13 @@
   <!-- Navigation -->
   <ul class="navbar-nav mb-md-3">
     <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="ni ni-books text-default"></i> varios
-      </a>
+        @if(auth()->user() && auth()->user()->id === 2)
+          <a class="nav-link" href="{{ route('users.index') }}">
+            <i class="ni ni-books text-default"></i> Administrador de usuarios
+          </a>
+        @endif
     </li>
+
     <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="ni ni-chart-bar-32 text-warning"></i> Desempeño 

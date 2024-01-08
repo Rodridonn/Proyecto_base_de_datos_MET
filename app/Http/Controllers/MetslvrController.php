@@ -89,7 +89,9 @@ class MetslvrController extends Controller
         if ($request->filled('tt_inicio') && $request->filled('tt_final')) {
             $tt_inicio = $request->input('tt_inicio');
             $tt_fin = $request->input('tt_final');
-            $metslvr->whereRaw('tt BETWEEN ? AND ?', [$tt_inicio, $tt_fin]);
+        
+            $metslvr->where('tt', '>=', min($tt_inicio, $tt_fin))
+                         ->where('tt', '<=', max($tt_inicio, $tt_fin));
         } elseif ($request->filled('tt')) {
             $tt = $request->input('tt');
             $metslvr->where('tt', $tt);
@@ -99,18 +101,24 @@ class MetslvrController extends Controller
         if ($request->filled('tbh_inicio') && $request->filled('tbh_final')) {
             $tbh_inicio = $request->input('tbh_inicio');
             $tbh_fin = $request->input('tbh_final');
-            $metslvr->whereBetween('tbh', [$tbh_inicio, $tbh_fin]);
+        
+            $metslvr->where('tbh', '>=', min($tbh_inicio, $tbh_fin))
+                         ->where('tbh', '<=', max($tbh_inicio, $tbh_fin));
         } elseif ($request->filled('tbh')) {
-            $metslvr->where('tbh', $request->input('tbh'));
+            $tbh = $request->input('tbh');
+            $metslvr->where('tbh', $tbh);
         }
 
         
         if ($request->filled('td_inicio') && $request->filled('td_final')) {
             $td_inicio = $request->input('td_inicio');
             $td_fin = $request->input('td_final');
-            $metslvr->whereBetween('td', [$td_inicio, $td_fin]);
+        
+            $metslvr->where('td', '>=', min($td_inicio, $td_fin))
+                         ->where('td', '<=', max($td_inicio, $td_fin));
         } elseif ($request->filled('td')) {
-            $metslvr->where('td', $request->input('td'));
+            $td = $request->input('td');
+            $metslvr->where('td', $td);
         }
 
         if ($request->filled('qfe')) {

@@ -99,26 +99,35 @@ class MetslcbController extends Controller
         if ($request->filled('tt_inicio') && $request->filled('tt_final')) {
             $tt_inicio = $request->input('tt_inicio');
             $tt_fin = $request->input('tt_final');
-            $metslcb->whereBetween('tt', [$tt_inicio, $tt_fin]);
+        
+            $metslcb->where('tt', '>=', min($tt_inicio, $tt_fin))
+                         ->where('tt', '<=', max($tt_inicio, $tt_fin));
         } elseif ($request->filled('tt')) {
-            $metslcb->where('tt', $request->input('tt'));
+            $tt = $request->input('tt');
+            $metslcb->where('tt', $tt);
         }
     
 
         if ($request->filled('tbh_inicio') && $request->filled('tbh_final')) {
             $tbh_inicio = $request->input('tbh_inicio');
             $tbh_fin = $request->input('tbh_final');
-            $metslcb->whereBetween('tbh', [$tbh_inicio, $tbh_fin]);
+        
+            $metslcb->where('tbh', '>=', min($tbh_inicio, $tbh_fin))
+                         ->where('tbh', '<=', max($tbh_inicio, $tbh_fin));
         } elseif ($request->filled('tbh')) {
-            $metslcb->where('tbh', $request->input('tbh'));
+            $tbh = $request->input('tbh');
+            $metslcb->where('tbh', $tbh);
         }
 
         if ($request->filled('td_inicio') && $request->filled('td_final')) {
             $td_inicio = $request->input('td_inicio');
             $td_fin = $request->input('td_final');
-            $metslcb->whereBetween('td', [$td_inicio, $td_fin]);
+        
+            $metslcb->where('td', '>=', min($td_inicio, $td_fin))
+                         ->where('td', '<=', max($td_inicio, $td_fin));
         } elseif ($request->filled('td')) {
-            $metslcb->where('td', $request->input('td'));
+            $td = $request->input('td');
+            $metslcb->where('td', $td);
         }
 
         if ($request->filled('qfe')) {

@@ -98,7 +98,9 @@ class MetsltrController extends Controller
         if ($request->filled('tt_inicio') && $request->filled('tt_final')) {
             $tt_inicio = $request->input('tt_inicio');
             $tt_fin = $request->input('tt_final');
-            $metsltr->whereRaw('tt BETWEEN ? AND ?', [$tt_inicio, $tt_fin]);
+        
+            $metsltr->where('tt', '>=', min($tt_inicio, $tt_fin))
+                         ->where('tt', '<=', max($tt_inicio, $tt_fin));
         } elseif ($request->filled('tt')) {
             $tt = $request->input('tt');
             $metsltr->where('tt', $tt);
@@ -108,9 +110,12 @@ class MetsltrController extends Controller
         if ($request->filled('tbh_inicio') && $request->filled('tbh_final')) {
             $tbh_inicio = $request->input('tbh_inicio');
             $tbh_fin = $request->input('tbh_final');
-            $metsltr->whereBetween('tbh', [$tbh_inicio, $tbh_fin]);
+        
+            $metsltr->where('tbh', '>=', min($tbh_inicio, $tbh_fin))
+                         ->where('tbh', '<=', max($tbh_inicio, $tbh_fin));
         } elseif ($request->filled('tbh')) {
-            $metsltr->where('tbh', $request->input('tbh'));
+            $tbh = $request->input('tbh');
+            $metsltr->where('tbh', $tbh);
         }
 
 
@@ -118,9 +123,12 @@ class MetsltrController extends Controller
         if ($request->filled('td_inicio') && $request->filled('td_final')) {
             $td_inicio = $request->input('td_inicio');
             $td_fin = $request->input('td_final');
-            $metsltr->whereBetween('td', [$td_inicio, $td_fin]);
+        
+            $metsltr->where('td', '>=', min($td_inicio, $td_fin))
+                         ->where('td', '<=', max($td_inicio, $td_fin));
         } elseif ($request->filled('td')) {
-            $metsltr->where('td', $request->input('td'));
+            $td = $request->input('td');
+            $metsltr->where('td', $td);
         }
 
 
